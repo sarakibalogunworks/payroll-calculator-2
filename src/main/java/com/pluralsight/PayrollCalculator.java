@@ -8,8 +8,7 @@ public class PayrollCalculator {
 
     public static void main(String[] args) {
 
-        String fileName = "employee.csv";
-
+        String fileName = "employees.csv";
         try {
             FileReader fileReader = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -24,20 +23,20 @@ public class PayrollCalculator {
                 double hours = Double.parseDouble(tokens[2]);
                 double rate = Double.parseDouble(tokens[3]);
 
-                Employee employee = new Employee(id, employeeName, hours, rate);
+                Employees employee = new Employees(employeeName, id, hours, rate);
 
                 System.out.printf("ID: %d | Name: %s | Gross Pay: $%.2f%n",
                         employee.getEmployeeId(),
                         employee.getName(),
                         employee.getGrossPay());
-
-            }
-            bufferedReader.close();;
-
-            catch (IOException e) {
-                System.out.println("Problem reading file: " + fileName);
             }
 
+            bufferedReader.close();
+
+        } catch (IOException e) {
+            System.out.println("Problem reading file: " + fileName);
         }
+
     }
+
 }
