@@ -15,6 +15,10 @@ public class PayrollCalculator {
 
             String line;
 
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] tokens = line.split("\\|");
+            }
+
         }
     }
 }
